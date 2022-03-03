@@ -10,6 +10,8 @@ namespace URIONLINE
             //uri1011();
             //uri1012();
             //uri1013();
+            //uri1014();
+            uri1015();
         }
         public static void uri1010()
         {
@@ -67,6 +69,35 @@ namespace URIONLINE
             maior = maiorAB > C ? maiorAB : C;
 
             Console.WriteLine($"{maior} eh o maior");
+        }
+        public static void uri1014()
+        {
+            int km = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            double gas = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+            double media = Math.Round(km / gas,3);
+
+            Console.WriteLine($"{media:f3} km/l");
+
+
+
+        }
+        public static void uri1015()
+        {
+            string[] linha1 = Console.ReadLine().Split(' ');
+            string[] linha2 = Console.ReadLine().Split(' ');
+
+            double x1, x2, y1, y2;
+
+            x1 = double.Parse(linha1[0], CultureInfo.InvariantCulture);
+            y1 = double.Parse(linha1[1], CultureInfo.InvariantCulture);
+
+            x2 = double.Parse(linha2[0], CultureInfo.InvariantCulture);
+            y2 = double.Parse(linha2[1], CultureInfo.InvariantCulture);
+
+            double result = Math.Round(Math.Sqrt(Math.Pow(x2 -x1, 2) + Math.Pow(y2 - y1, 2)),4);
+
+            Console.WriteLine($"{result:f4}");
         }
     }
 }
