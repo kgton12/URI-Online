@@ -6,7 +6,7 @@ namespace URIONLINE
     {
         static void Main(string[] args)
         {
-            uri1022();
+            uri1040();
         }
         public static void uri1010()
         {
@@ -24,7 +24,7 @@ namespace URIONLINE
 
             string raio = Console.ReadLine();
 
-            double massa = (4.0 / 3.0) * 3.14159 * Math.Pow(double.Parse(raio, CultureInfo.InvariantCulture),3);
+            double massa = (4.0 / 3.0) * 3.14159 * Math.Pow(double.Parse(raio, CultureInfo.InvariantCulture), 3);
 
             Console.WriteLine($"VOLUME = {massa:f3}");
         }
@@ -48,8 +48,8 @@ namespace URIONLINE
             Console.WriteLine($"CIRCULO: {circulo:f3}");
             Console.WriteLine($"TRAPEZIO: {trapezio:f3}");
             Console.WriteLine($"QUADRADO: {quadrado:f3}");
-            Console.WriteLine($"RETANGULO: {retangulo:f3}");       
-  
+            Console.WriteLine($"RETANGULO: {retangulo:f3}");
+
         }
         public static void uri1013()
         {
@@ -70,7 +70,7 @@ namespace URIONLINE
             int km = int.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
             double gas = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            double media = Math.Round(km / gas,3);
+            double media = Math.Round(km / gas, 3);
 
             Console.WriteLine($"{media:f3} km/l");
 
@@ -98,7 +98,7 @@ namespace URIONLINE
         {
             string y = Console.ReadLine();
 
-            Console.WriteLine($"{int.Parse(y)*2} minutos");
+            Console.WriteLine($"{int.Parse(y) * 2} minutos");
         }
         public static void uri1017()
         {
@@ -150,11 +150,11 @@ namespace URIONLINE
             Console.WriteLine($"{dois} nota(s) de R$ 2,00");
             Console.WriteLine($"{troco} nota(s) de R$ 1,00");
 
-            
+
         }
         public static void uri1019()
         {
-            int segundos = int.Parse(Console.ReadLine()); 
+            int segundos = int.Parse(Console.ReadLine());
 
             int hor = (int)(segundos / (60 * 60));
 
@@ -174,7 +174,7 @@ namespace URIONLINE
             int mes = (int)(dias / 30);
             dias = dias - (mes * 30);
 
-            int dia = dias;          
+            int dia = dias;
 
             Console.WriteLine($"{ano} ano(s)");
             Console.WriteLine($"{mes} mes(es)");
@@ -183,7 +183,7 @@ namespace URIONLINE
         public static void uri1021()
         {
             int dinheiro1, cem, cinquenta, cinquenta1, vinte, vinte1, dez, dez1, cinco, cinco1, dois, dois1;
- 
+
             int moedas, um, um1, cinquentacen, vintecen, dezcen, cincocen, umcen;
 
             double dinheiro;
@@ -205,7 +205,7 @@ namespace URIONLINE
             cinco1 = cinco / 5;
             dois = cinco % 5;
             dois1 = dois / 2;
- 
+
             um = dois % 2;
             um1 = um / 1;
 
@@ -216,7 +216,7 @@ namespace URIONLINE
             Console.WriteLine($"{vinte1} nota(s) de R$ 20.00");
             Console.WriteLine($"{dez1} nota(s) de R$ 10.00");
             Console.WriteLine($"{cinco1} nota(s) de R$ 5.00");
-            Console.WriteLine($"{dois1} nota(s) de R$ 2.00");   
+            Console.WriteLine($"{dois1} nota(s) de R$ 2.00");
 
             cinquentacen = moedas / 50;
             vintecen = (moedas % 50) / 25;
@@ -230,7 +230,7 @@ namespace URIONLINE
             Console.WriteLine($"{vintecen} moeda(s) de R$ 0.25");
             Console.WriteLine($"{dezcen} moeda(s) de R$ 0.10");
             Console.WriteLine($"{cincocen} moeda(s) de R$ 0.05");
-            Console.WriteLine($"{umcen} moeda(s) de R$ 0.01");            
+            Console.WriteLine($"{umcen} moeda(s) de R$ 0.01");
         }
         public static void uri1022()
         {
@@ -240,7 +240,7 @@ namespace URIONLINE
             int C = int.Parse(linha[2]);
             int D = int.Parse(linha[3]);
 
-            if (B > C && D > A && (C+D) > (A+B) && C>=0 && D>=0 && A % 2 == 0)
+            if (B > C && D > A && (C + D) > (A + B) && C >= 0 && D >= 0 && A % 2 == 0)
             {
                 Console.WriteLine("Valores aceitos");
             }
@@ -249,8 +249,103 @@ namespace URIONLINE
                 Console.WriteLine("Valores nao aceitos");
             }
         }
+        public static void uri1036()
+        {
+            double A, B, C, T;
+            string[] linha = Console.ReadLine().Split(' ');
+
+            A = double.Parse(linha[0], CultureInfo.InvariantCulture);
+            B = double.Parse(linha[1], CultureInfo.InvariantCulture);
+            C = double.Parse(linha[2], CultureInfo.InvariantCulture);
+
+
+            if (((B * B) - 4 * A * C) < 0 || A == 0)
+            {
+                Console.WriteLine("Impossivel calcular");
+            }
+            else
+            {
+                T = Math.Sqrt((B * B) - 4 * A * C);
+                Console.WriteLine($"R1 = {((-B + T) / (2 * A)):f5}");
+                Console.WriteLine($"R2 = {((-B - T) / (2 * A)):f5}");
+            }
+        }
+        public static void uri1037()
+        {
+            double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            string msg;
+
+            if (valor >= 0 && valor <= 25)
+            {
+                msg = "Intervalo [0,25]";
+            }
+            else if (valor >= 25 && valor <= 50)
+            {
+                msg = "Intervalo (25,50]";
+            }
+            else if (valor >= 50 && valor <= 75)
+            {
+                msg = "Intervalo (50,75]";
+            }
+            else if (valor >= 75 && valor <= 100)
+            {
+                msg = "Intervalo (75,100]";
+            }
+            else
+            {
+                msg = "Fora de intervalo"; 
+            }
+            Console.WriteLine(msg);
+        }
+        public static void uri1038()
+        {
+            string[] linha = Console.ReadLine().Split(' ');
+            int cod = int.Parse(linha[0]);
+            int qtd = int.Parse(linha[1]);
+            double[] val = new double[] {0.00, 4.00, 4.50, 5.00, 2.00, 1.50 };
+
+            Console.WriteLine($"Total: R$ {(qtd * val[cod]):f2}");
+        }
+        public static void uri1040()
+        {
+            double a, b, c, d, last, m;
+            string[] linha = Console.ReadLine().Split(' ');
+            a = double.Parse(linha[0], CultureInfo.InvariantCulture);
+            b = double.Parse(linha[1], CultureInfo.InvariantCulture);
+            c = double.Parse(linha[2], CultureInfo.InvariantCulture);
+            d = double.Parse(linha[3], CultureInfo.InvariantCulture);
+
+            m = (a * 2 + b * 3 + c * 4 + d) / 10;
+ 
+            Console.WriteLine($"Media: {m.ToString().Replace(',', '.')}");
+
+            if (m >= 7.0)
+            {
+                Console.WriteLine($"Aluno aprovado.");
+            }
+            else if (m >= 5.0)
+            {
+                Console.WriteLine($"Aluno em exame.");
+                last = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.WriteLine($"Nota do exame: {last.ToString().Replace(',', '.')}");
+                if (last + m / 2.0 > 5.0)
+                {
+                    Console.WriteLine($"Aluno aprovado.");
+                }
+                else
+                {
+                    Console.WriteLine($"Aluno reprovado.");
+                }
+                Console.WriteLine($"Media final: { ((last + m) / 2.0).ToString().Replace(',', '.')}");
+            }
+            else
+            {
+                Console.WriteLine($"Aluno reprovado.");
+            }
+        }
     }
 }
+
 
 
 
