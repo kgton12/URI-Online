@@ -293,7 +293,7 @@ namespace URIONLINE
             }
             else
             {
-                msg = "Fora de intervalo"; 
+                msg = "Fora de intervalo";
             }
             Console.WriteLine(msg);
         }
@@ -302,7 +302,7 @@ namespace URIONLINE
             string[] linha = Console.ReadLine().Split(' ');
             int cod = int.Parse(linha[0]);
             int qtd = int.Parse(linha[1]);
-            double[] val = new double[] {0.00, 4.00, 4.50, 5.00, 2.00, 1.50 };
+            double[] val = new double[] { 0.00, 4.00, 4.50, 5.00, 2.00, 1.50 };
 
             Console.WriteLine($"Total: R$ {(qtd * val[cod]):f2}");
         }
@@ -314,33 +314,65 @@ namespace URIONLINE
             b = double.Parse(linha[1], CultureInfo.InvariantCulture);
             c = double.Parse(linha[2], CultureInfo.InvariantCulture);
             d = double.Parse(linha[3], CultureInfo.InvariantCulture);
+            /*
+             m = Math.Round((a * 2 + b * 3 + c * 4 + d),1) / 10;
 
-            m = (a * 2 + b * 3 + c * 4 + d) / 10;
- 
-            Console.WriteLine($"Media: {m.ToString().Replace(',', '.')}");
+             Console.WriteLine($"Media: {m.ToString("F1", CultureInfo.InvariantCulture)}");
 
-            if (m >= 7.0)
+             if (m >= 7.0)
+             {
+                 Console.WriteLine($"Aluno aprovado.");
+             }
+             else if (m >= 5.0)
+             {
+                 Console.WriteLine($"Aluno em exame.");
+                 last = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                 Console.WriteLine($"Nota do exame: {last.ToString("F1", CultureInfo.InvariantCulture)}");
+                 if (last + m / 2.0 > 5.0)
+                 {
+                     Console.WriteLine($"Aluno aprovado.");
+                 }
+                 else
+                 {
+                     Console.WriteLine($"Aluno reprovado.");
+                 }
+                 Console.WriteLine($"Media final: { Math.Round(((last + m) / 2.0),1).ToString("F1", CultureInfo.InvariantCulture)}");
+             }
+             else
+             {
+                 Console.WriteLine($"Aluno reprovado.");
+             }*/
+
+            m = Math.Round((((a * 2) + (b * 3) + (c * 4) + d) / 10), 1);
+            if (m < 5)
             {
-                Console.WriteLine($"Aluno aprovado.");
+                Console.WriteLine($"Media: {m.ToString("F1", CultureInfo.InvariantCulture)}");
+                Console.WriteLine($"Aluno reprovado.");
             }
-            else if (m >= 5.0)
+            else if (m > 7)
             {
-                Console.WriteLine($"Aluno em exame.");
-                last = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                Console.WriteLine($"Nota do exame: {last.ToString().Replace(',', '.')}");
-                if (last + m / 2.0 > 5.0)
-                {
-                    Console.WriteLine($"Aluno aprovado.");
-                }
-                else
-                {
-                    Console.WriteLine($"Aluno reprovado.");
-                }
-                Console.WriteLine($"Media final: { ((last + m) / 2.0).ToString().Replace(',', '.')}");
+                Console.WriteLine($"Media: {m.ToString("F1", CultureInfo.InvariantCulture)}");
+                Console.WriteLine($"Aluno aprovado.");
             }
             else
             {
-                Console.WriteLine($"Aluno reprovado.");
+                double g;
+                Console.WriteLine($"Media: {m.ToString("F1", CultureInfo.InvariantCulture)}");
+                Console.WriteLine($"Aluno em exame.");
+                last = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                Console.WriteLine($"Nota do exame: {last.ToString("F1", CultureInfo.InvariantCulture)}");
+                g = ((m + last) / 2);
+                if (g < 5)
+                {
+                    Console.WriteLine($"Aluno reprovado.");
+                    Console.WriteLine($"Media: {g.ToString("F1", CultureInfo.InvariantCulture)}");
+                }
+                else if (g > 5)
+                {
+                    Console.WriteLine($"Aluno aprovado.");
+                    Console.WriteLine($"Media final: { Math.Round(g).ToString("F1", CultureInfo.InvariantCulture)}");
+                }
+
             }
         }
     }
