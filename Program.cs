@@ -6,7 +6,7 @@ namespace URIONLINE
     {
         static void Main(string[] args)
         {
-            uri1040();
+            uri1042();
         }
         public static void uri1010()
         {
@@ -373,6 +373,66 @@ namespace URIONLINE
                     Console.WriteLine($"Media final: { Math.Round(g).ToString("F1", CultureInfo.InvariantCulture)}");
                 }
 
+            }
+        }
+        public static void uri1041()
+        {
+            double y, x;
+            string[] linha = Console.ReadLine().Split(' ');
+            x = double.Parse(linha[0], CultureInfo.InvariantCulture);
+            y = double.Parse(linha[1], CultureInfo.InvariantCulture);
+
+            if (x + y == 0)
+            {
+                Console.WriteLine("Origem");
+            }
+            else if (x == 0)
+            {
+                Console.WriteLine("Eixo Y");
+            }
+            else if (y == 0)
+            {
+                Console.WriteLine("Eixo X");
+            }
+            else if (x > 0 && y > 0)
+            {
+                Console.WriteLine("Q1");
+            }
+            else if (x > 0 && y < 0)
+            {
+                Console.WriteLine("Q4");
+            }
+            else if (x < 0 && y > 0)
+            {
+                Console.WriteLine("Q2");
+            }
+            else if (x < 0 && y < 0)
+            {
+                Console.WriteLine("Q3");
+            }
+        }
+        public static void uri1042()
+        {            
+            string[] linha = Console.ReadLine().Split(' ');
+            int[] linhaordenada = new int[3];
+
+            for (int i = 0; i < linha.Length; i++)
+            {
+                linhaordenada[i] = Convert.ToInt16(linha[i]);                
+            }
+
+            Array.Sort(linhaordenada);
+
+            foreach (var item in linhaordenada)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("");
+
+            foreach (var item in linha)
+            {
+                Console.WriteLine(item);
             }
         }
     }
