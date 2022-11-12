@@ -6,7 +6,7 @@ namespace URIONLINE
     {
         static void Main(string[] args)
         {
-            uri1042();
+            uri1047();
         }
         public static void uri1010()
         {
@@ -412,13 +412,13 @@ namespace URIONLINE
             }
         }
         public static void uri1042()
-        {            
+        {
             string[] linha = Console.ReadLine().Split(' ');
             int[] linhaordenada = new int[3];
 
             for (int i = 0; i < linha.Length; i++)
             {
-                linhaordenada[i] = Convert.ToInt16(linha[i]);                
+                linhaordenada[i] = Convert.ToInt16(linha[i]);
             }
 
             Array.Sort(linhaordenada);
@@ -433,6 +433,144 @@ namespace URIONLINE
             foreach (var item in linha)
             {
                 Console.WriteLine(item);
+            }
+        }
+        public static void uri1044()
+        {
+            /*double A, B;
+            decimal valor2;
+            int valor1;           
+            string[] linha = Console.ReadLine().Split(' ');
+            A = double.Parse(linha[0], CultureInfo.InvariantCulture);
+            B = double.Parse(linha[1], CultureInfo.InvariantCulture);
+
+            if (Int32.TryParse(Convert.ToString(B / A), out valor1))
+            {
+                Console.WriteLine("Sao Multiplos");
+            }
+            else if (Decimal.TryParse(Convert.ToString(B / A), out valor2)) 
+            {
+                Console.WriteLine("Nao sao Multiplos");
+            }*/
+            int A, B;
+            string[] linha = Console.ReadLine().Split(' ');
+            A = int.Parse(linha[0]);
+            B = int.Parse(linha[1]);
+
+            if (B % A == 0 || A % B == 0)
+            {
+                Console.WriteLine("Sao Multiplos");
+            }
+            else
+            {
+                Console.WriteLine("Nao sao Multiplos");
+            }
+        }
+        public static void uri1045()
+        {
+            double A, B, C;
+            string[] linha = Console.ReadLine().Split(' ');            
+
+            A = double.Parse(linha[0], CultureInfo.InvariantCulture);
+            B = double.Parse(linha[1], CultureInfo.InvariantCulture);
+            C = double.Parse(linha[2], CultureInfo.InvariantCulture);
+
+            /*if (A >= (B + C))
+            {
+                Console.WriteLine("NAO FORMA TRIANGULO");
+            }
+
+            if (Math.Pow(A, 2) == (Math.Pow(B, 2) + Math.Pow(C, 2)))
+            {
+                Console.WriteLine("TRIANGULO RETANGULO");
+            }
+
+            if (Math.Pow(A, 2) > (Math.Pow(B, 2) + Math.Pow(C, 2)))
+            {
+                Console.WriteLine("TRIANGULO OBTUSANGULO");
+            }
+
+            if (Math.Pow(A, 2) < (Math.Pow(B, 2) + Math.Pow(C, 2)))
+            {
+                Console.WriteLine("TRIANGULO ACUTANGULO");
+            }
+
+            if (A == B && C == A)
+            {
+                Console.WriteLine("TRIANGULO EQUILATERO");
+            }
+
+            if ((A == B && A != C) || (A == C && A != B) || (B == C && B != A))
+            {
+                Console.WriteLine("TRIANGULO ISOSCELES");
+            }*/
+
+
+            if (A >= (B + C) || B >= (A + C) || C >= (A + B))
+                Console.WriteLine("NAO FORMA TRIANGULO");
+            else if (A * A == (B * B + C * C) || B * B == (A * A + C * C) || C * C == (A * A + B * B))
+                Console.WriteLine("TRIANGULO RETANGULO");
+            else if (A * A > (B * B + C * C) || B * B > (A * A + C * C) || C * C > (A * A + B * B))
+                Console.WriteLine("TRIANGULO OBTUSANGULO");
+            else if (A * A < (B * B + C * C) || B * B < (A * A + C * C) || C * C < (A * A + B * B))
+                Console.WriteLine("TRIANGULO ACUTANGULO");
+            if (A == B && A == C)
+                Console.WriteLine("TRIANGULO EQUILATERO");
+            if ((A == B && A != C) || (A == C && A != B) || (B == C && B != A))
+                Console.WriteLine("TRIANGULO ISOSCELES");
+        }
+        public static void uri1046()
+        {
+
+            double A, B, C;
+            string[] linha = Console.ReadLine().Split(' ');
+
+            A = double.Parse(linha[0], CultureInfo.InvariantCulture);
+            B = double.Parse(linha[1], CultureInfo.InvariantCulture);
+            double result = 0;
+            if (A == B)
+            {
+                Console.WriteLine("O JOGO DUROU 24 HORA(S)");
+            }else if (A > B)
+            {
+                result = 24 - A;
+                result = result + B;
+                Console.WriteLine($"O JOGO DUROU {result} HORA(S)");
+            }else if (A < B)
+            {
+                result = B - A;
+                Console.WriteLine($"O JOGO DUROU {result} HORA(S)");
+            }
+        }
+        public static void uri1047()
+        {
+            int A, B, C, D;
+            string[] linha = Console.ReadLine().Split(' ');
+
+            A = int.Parse(linha[0]);
+            B = int.Parse(linha[1]);
+            C = int.Parse(linha[2]);
+            D = int.Parse(linha[3]);
+
+            var hora1 = new TimeSpan(A, B, 00);
+            var hora2 = new TimeSpan(C, D, 00);
+            TimeSpan result = new TimeSpan(00, 00, 00);
+
+            if (hora1 > hora2)
+            {
+                TimeSpan diaAtual = new TimeSpan(24, 00, 00);
+                result = diaAtual - hora1;
+                result = result + hora2;
+                Console.WriteLine($"O JOGO DUROU {result.Hours} HORA(S) E {result.Minutes} MINUTO(S)");
+            }
+            else if (hora1 < hora2)
+            {
+                result = hora2 - hora1;
+                Console.WriteLine($"O JOGO DUROU {result.Hours} HORA(S) E {result.Minutes} MINUTO(S)");
+
+            }else if (hora1 == hora2)
+            {
+                Console.WriteLine("O JOGO DUROU 24 HORA(S) E 0 MINUTO(S)");
             }
         }
     }
